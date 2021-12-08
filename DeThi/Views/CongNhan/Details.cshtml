@@ -1,0 +1,26 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model object
+@{
+}
+<form>
+  <label for="fname1">Mã công nhân</label>
+  <input type="text" value="@Model.GetType().GetProperty("MaCongNhan").GetValue(Model,null)" id="fname1" name="fname1"><br><br>
+  <label for="fname2">Tên công nhân</label>
+  <input type="text" value="@Model.GetType().GetProperty("TenCongNhan").GetValue(Model,null)" id="fname2" name="fname2"><br><br>
+    <label for="fname3">Giới tính</label>
+    @if(String.Compare(@Model.GetType().GetProperty("GioiTinh").GetValue(Model,null).ToString(), "1", true) == 0)
+    {
+        <input name="fname3" type="checkbox" checked>
+    }
+    else
+    {
+        <input name="fname3" type="checkbox" >
+    }
+    <br><br>
+    <label for="fname4">Năm sinh</label>
+  <input type="text" value="@Model.GetType().GetProperty("NamSinh").GetValue(Model,null)" id="fname4" name="fname4"><br><br>
+    <label for="fname5">Nước về</label>
+  <input type="text" value="@Model.GetType().GetProperty("NuocVe").GetValue(Model,null)" id="fname5" name="fname5"><br><br>
+</form>

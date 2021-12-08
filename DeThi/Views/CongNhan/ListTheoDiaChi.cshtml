@@ -1,0 +1,29 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model List<object>
+@{
+}
+<table border="1">
+        <tr>
+            <th>Mã công nhân</th>
+            <th>Tên công nhân</th>
+            <th>Chức năng</th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>
+                @item.GetType().GetProperty("MaCongNhan").GetValue(item, null)
+            </td>
+            <td>
+                @item.GetType().GetProperty("TenCongNhan").GetValue(item, null)
+            </td>
+            <td>
+                <a asp-action="Details" asp-route-id="@item.GetType().GetProperty("MaCongNhan").GetValue(item, null)">Details</a>
+                <a href="#">Delete</a>
+            </td>
+        </tr>
+        }
+ </table>
